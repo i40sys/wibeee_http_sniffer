@@ -8,7 +8,7 @@ from scapy.layers.http import HTTPRequest
 import logging
 
 # Set up the logger
-logger = logging.getLogger('wibee_sniffer')
+logger = logging.getLogger('wibeee_sniffer')
 logger.setLevel(logging.DEBUG)
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
