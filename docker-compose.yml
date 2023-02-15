@@ -1,0 +1,14 @@
+version: '3'
+services:
+  wibeee_sniffer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ymbihq/wibeee_sniffer
+    privileged: true
+    network_mode: host
+    environment:
+      - IFACE=qvs1
+      - FILTER=(host 10.2.8.224 or host 10.2.8.225) and (port 8080)
+      - UDP_IP=10.2.10.11
+      - UDP_PORT=58088
