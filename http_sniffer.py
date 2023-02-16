@@ -8,13 +8,11 @@ from scapy.layers.http import HTTPRequest
 import logging
 
 # Set up the logger
+LOGLEVEL = os.environ.get('LOGLEVEL', 'INFO').upper()
+FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+logging.basicConfig(level=LOGLEVEL, format = FORMAT, handlers = [logging.StreamHandler()])
 logger = logging.getLogger('wibeee_sniffer')
-logger.setLevel(logging.DEBUG)
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.INFO)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-console_handler.setFormatter(formatter)
-logger.addHandler(console_handler)
+logger.debug(f'LOGLEVEL = {LOGLEVEL}')
 
 # CONFIGURATION
 iface = os.getenv('IFACE') or "qvs1"
